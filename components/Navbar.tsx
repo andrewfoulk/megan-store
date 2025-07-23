@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 "use client";
 
 import AppBar from "@mui/material/AppBar";
@@ -9,9 +8,15 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import Box from "@mui/material/Box";
+import { useCartState } from "@/components/Cart/CartContext";
 
-export default function Navbar() {
-  const cartCount = 0; // wire this up to your cart context
+export type NavbarProps = {
+  onCartClick: () => void;
+};
+
+export const Navbar = ({ onCartClick }: NavbarProps) => {
+  const { items } = useCartState();
+  const cartCount = items.reduce((sum, i) => sum + i.quantity, 0);
 
   return (
     <AppBar position="sticky" color="default" elevation={1}>
@@ -22,7 +27,7 @@ export default function Navbar() {
           href="/"
           sx={{ textDecoration: "none", color: "inherit" }}
         >
-          Megan’s Pottery
+          Megan&apos;s Pottery
         </Typography>
 
         <Box
@@ -34,11 +39,11 @@ export default function Navbar() {
             gap: 2,
           }}
         >
-          <Link href="/shop">
-            <Typography component="a">Pottery</Typography>
-          </Link>
-          <Link href="/about">
+        <Link href="/about">
             <Typography component="a">About Me</Typography>
+          </Link>
+          <Link href="/shop">
+            <Typography component="a">Shop</Typography>
           </Link>
           <Link href="/contact">
             <Typography component="a">Contact</Typography>
@@ -46,8 +51,7 @@ export default function Navbar() {
         </Box>
 
         <IconButton
-          component={Link}
-          href="/cart"
+          onClick={onCartClick}
           size="large"
           edge="end"
           color="inherit"
