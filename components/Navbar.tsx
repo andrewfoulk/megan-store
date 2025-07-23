@@ -8,7 +8,7 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import Box from "@mui/material/Box";
-import { useCartState } from "@/components/Cart/CartContext";
+import { useCartState } from "@/context/CartContext";
 
 export type NavbarProps = {
   onCartClick: () => void;

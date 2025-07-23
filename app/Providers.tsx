@@ -3,8 +3,8 @@
 import { CacheProvider } from "@emotion/react";
 import createEmotionCache from "../lib/createEmotionCache";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { CartProvider } from "@/components/Cart/CartContext";
-import { CartDrawer } from "@/components/Cart/CartDrawer";
+import { CartProvider } from "@/context/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 import theme from "../lib/theme";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "../components/Navbar";

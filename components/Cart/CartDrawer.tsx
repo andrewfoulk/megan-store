@@ -13,9 +13,9 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
-import { useCartState } from "@/components/Cart/CartContext";
+import { useCartState } from "@/context/CartContext";
 
-const DRAWER_WIDTH = 360;
+const DRAWER_WIDTH = 440;
 
 export type CartDrawerProps = {
   open: boolean;
