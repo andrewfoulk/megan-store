@@ -1,3 +1,4 @@
+// src/components/Navbar.tsx
 "use client";
 
 import AppBar from "@mui/material/AppBar";
@@ -7,26 +8,51 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
-import { Box, Button } from "@mui/material";
+import Box from "@mui/material/Box";
 
 export default function Navbar() {
-  // you’ll replace this with your real cart count from context
-  const cartCount = 0;
+  const cartCount = 0; // wire this up to your cart context
 
   return (
     <AppBar position="sticky" color="default" elevation={1}>
-      <Toolbar>
-        <Typography variant="h6" component={Link} href="/" sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}>
+      <Toolbar sx={{ position: "relative" }}>
+        <Typography
+          variant="h6"
+          component={Link}
+          href="/"
+          sx={{ textDecoration: "none", color: "inherit" }}
+        >
           Megan’s Pottery
         </Typography>
 
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-          <Button component={Link} href="/shop">Pottery</Button>
-          <Button component={Link} href="/about">About Me</Button>
-          <Button component={Link} href="/contact">Contact</Button>
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex" },
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            gap: 2,
+          }}
+        >
+          <Link href="/shop" passHref legacyBehavior>
+            <Typography component="a">Pottery</Typography>
+          </Link>
+          <Link href="/about" passHref legacyBehavior>
+            <Typography component="a">About Me</Typography>
+          </Link>
+          <Link href="/contact" passHref legacyBehavior>
+            <Typography component="a">Contact</Typography>
+          </Link>
         </Box>
 
-        <IconButton component={Link} href="/cart" size="large" color="inherit" sx={{ ml: 2 }}>
+        <IconButton
+          component={Link}
+          href="/cart"
+          size="large"
+          edge="end"
+          color="inherit"
+          sx={{ marginLeft: "auto" }}
+        >
           <Badge badgeContent={cartCount} color="primary">
             <ShoppingCartIcon />
           </Badge>
