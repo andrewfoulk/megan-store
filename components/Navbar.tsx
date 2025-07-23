@@ -34,13 +34,13 @@ export default function Navbar() {
             gap: 2,
           }}
         >
-          <Link href="/shop" passHref legacyBehavior>
+          <Link href="/shop">
             <Typography component="a">Pottery</Typography>
           </Link>
-          <Link href="/about" passHref legacyBehavior>
+          <Link href="/about">
             <Typography component="a">About Me</Typography>
           </Link>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact">
             <Typography component="a">Contact</Typography>
           </Link>
         </Box>
